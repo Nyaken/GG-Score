@@ -3,6 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="app/src/main/res/drawable/button_refresh_score.xml" value="0.197" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.21354166666666666" />
       </map>
     </option>

@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">GG_Score</string>
+
+    <string name="refresh_score">전적 갱신</string>
 </resources>
