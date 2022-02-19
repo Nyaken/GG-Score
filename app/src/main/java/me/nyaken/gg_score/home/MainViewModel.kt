@@ -30,6 +30,10 @@ class MainViewModel @Inject constructor(
         _loading.value = item
     }
 
+    fun clear() {
+        lastMatch = null
+    }
+
     private val _summonerData = MutableLiveData<SummonerData>()
     val summonerData: LiveData<SummonerData>
         get() = _summonerData

@@ -13,6 +13,8 @@ data class LeagueData(
     @Parcelize
     data class TierRank(
         val name: String,
+        val tier: String,
+        val lp: Int,
         val imageUrl: String
     ): Parcelable
 

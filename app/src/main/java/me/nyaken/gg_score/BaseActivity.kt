@@ -39,4 +39,5 @@ abstract class BaseActivity<DataBinding : ViewDataBinding>(
 
     protected abstract fun initLayout()
 
+    protected abstract fun onRefresh()
 }

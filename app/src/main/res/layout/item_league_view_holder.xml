@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="vm"
+            type="me.nyaken.gg_score.home.MainViewModel" />
+        <variable
+            name="item"
+            type="me.nyaken.network.model.LeagueData" />
+    </data>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:minWidth="240dp"
+        android:minHeight="82dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:background="@drawable/shape_tier_rank">
+
+        <ImageView
+            android:id="@+id/imageview_tier_rank"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_marginStart="12dp"
+            app:item_image_src="@{item.tierRank.imageUrl}"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/textview_tier_rank_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="12dp"
+            android:textColor="@color/soft_blue"
+            android:textSize="10sp"
+            android:text="@{item.tierRank.name}"
+            app:layout_constraintStart_toEndOf="@id/imageview_tier_rank"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="TIER_NAME" />
+
+        <TextView
+            android:id="@+id/textview_tier"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:layout_marginEnd="8dp"
+            android:textColor="@color/dark_grey"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:text="@{item.tierRank.tier}"
+            app:layout_constraintStart_toStartOf="@id/textview_tier_rank_name"
+            app:layout_constraintTop_toBottomOf="@id/textview_tier_rank_name"
+            tools:text="TIER" />
+
+        <TextView
+            android:id="@+id/textview_lp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:textColor="@color/gunmetal"
+            android:textSize="10sp"
+            app:item_tier_lp="@{item.tierRank.lp}"
+            app:layout_constraintStart_toStartOf="@id/textview_tier"
+            app:layout_constraintTop_toBottomOf="@id/textview_tier"
+            tools:text="@string/text_format_lp" />
+
+        <TextView
+            android:id="@+id/textview_score"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:textColor="@color/cool_grey"
+            android:textSize="10sp"
+            app:item_tier_score="@{item}"
+            app:layout_constraintStart_toStartOf="@id/textview_lp"
+            app:layout_constraintTop_toBottomOf="@id/textview_lp"
+            tools:text="@string/text_format_lp" />
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginEnd="16dp"
+            android:foreground="?android:attr/selectableItemBackground"
+            app:cardBackgroundColor="@color/pale_grey"
+            app:cardCornerRadius="21dp"
+            app:cardElevation="0dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent">
+
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_gravity="center"
+                android:src="@drawable/ic_icon_arrow_right"/>
+
+        </androidx.cardview.widget.CardView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

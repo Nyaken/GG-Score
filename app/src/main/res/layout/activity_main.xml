@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+        <import type="me.nyaken.common.ViewUtil" />
         <variable
             name="vm"
             type="me.nyaken.gg_score.home.MainViewModel" />
@@ -15,6 +16,7 @@
         tools:context=".home.MainActivity">
 
         <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/appbar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:elevation="0dp">
@@ -40,6 +42,24 @@
                         app:item_profile="@{vm.summonerData.profileImageUrl}"/>
 
                     <TextView
+                        android:id="@+id/textview_level"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/shape_summoner_level"
+                        android:paddingStart="6dp"
+                        android:paddingEnd="6dp"
+                        android:paddingTop="3dp"
+                        android:paddingBottom="3dp"
+                        android:textSize="12sp"
+                        android:textColor="@color/white"
+                        android:text="@{ViewUtil.getCurrencyString(vm.summonerData.level)}"
+                        app:layout_constraintTop_toBottomOf="@id/imageview_profile"
+                        app:layout_constraintBottom_toBottomOf="@id/imageview_profile"
+                        app:layout_constraintStart_toStartOf="@id/imageview_profile"
+                        app:layout_constraintEnd_toEndOf="@id/imageview_profile"
+                        tools:text="247"/>
+
+                    <TextView
                         android:id="@+id/textview_user"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -52,37 +72,73 @@
                         app:layout_constraintTop_toTopOf="@id/imageview_profile"
                         tools:text="USER"/>
 
-                    <androidx.appcompat.widget.AppCompatButton
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/cardview_refresh_score"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:minWidth="89dp"
-                        android:minHeight="36dp"
                         android:layout_marginTop="8dp"
-                        android:textSize="14sp"
-                        android:textColor="@color/white"
-                        android:text="@string/refresh_score"
-                        android:background="@drawable/button_refresh_score"
                         android:foreground="?android:attr/selectableItemBackground"
-                        android:stateListAnimator="@null"
                         app:layout_constraintStart_toStartOf="@id/textview_user"
-                        app:layout_constraintTop_toBottomOf="@id/textview_user"/>
+                        app:layout_constraintTop_toBottomOf="@id/textview_user"
+                        app:cardBackgroundColor="@color/soft_blue"
+                        app:cardCornerRadius="20dp"
+                        app:cardElevation="0dp">
 
-                    <androidx.appcompat.widget.Toolbar
-                        android:id="@+id/toolbar"
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:minWidth="89dp"
+                            android:minHeight="36dp"
+                            android:gravity="center"
+                            android:textSize="14sp"
+                            android:textColor="@color/white"
+                            android:text="@string/refresh_score"/>
+
+                    </androidx.cardview.widget.CardView>
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/list_leagues"
                         android:layout_width="0dp"
-                        android:layout_height="?attr/actionBarSize"
-                        android:visibility="gone"
-                        app:contentInsetLeft="0dp"
-                        app:contentInsetStart="0dp"
-                        app:contentInsetRight="0dp"
-                        app:contentInsetEnd="0dp"
-                        app:layout_collapseMode="pin"
-                        app:layout_constraintTop_toTopOf="parent"
+                        android:layout_height="wrap_content"
+                        android:minHeight="82dp"
+                        android:layout_marginTop="41dp"
+                        android:layout_marginBottom="20dp"
+                        android:paddingStart="8dp"
+                        android:paddingEnd="8dp"
+                        android:clipToPadding="false"
+                        android:orientation="horizontal"
+                        app:item_leagues="@{vm.summonerData.leagues}"
+                        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent">
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/imageview_profile"
+                        app:layout_constraintBottom_toBottomOf="parent"/>
 
-                    </androidx.appcompat.widget.Toolbar>
                 </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.appcompat.widget.Toolbar
+                    android:id="@+id/toolbar"
+                    android:layout_width="match_parent"
+                    android:layout_height="?attr/actionBarSize"
+                    android:background="@color/pale_grey"
+                    android:visibility="gone"
+                    app:contentInsetLeft="0dp"
+                    app:contentInsetStart="0dp"
+                    app:contentInsetRight="0dp"
+                    app:contentInsetEnd="0dp"
+                    app:layout_collapseMode="pin">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:textSize="22sp"
+                        android:textColor="@color/dark_grey"
+                        android:textStyle="bold"
+                        android:text="@{vm.summonerData.name}"
+                        android:gravity="center"
+                        tools:text="USER"/>
+
+                </androidx.appcompat.widget.Toolbar>
             </com.google.android.material.appbar.CollapsingToolbarLayout>
         </com.google.android.material.appbar.AppBarLayout>
 

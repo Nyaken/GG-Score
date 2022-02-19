@@ -2,4 +2,7 @@
     <string name="app_name">GG_Score</string>
 
     <string name="refresh_score">전적 갱신</string>
+
+    <string name="text_format_lp">%s LP</string>
+    <string name="text_format_score">%s승 %s패 (%s)</string>
 </resources>

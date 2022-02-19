@@ -64,6 +64,7 @@ dependencies {
     implementation "com.jakewharton.rxbinding4:rxbinding:$rxbinding4_version"
     implementation "com.jakewharton.rxbinding4:rxbinding-appcompat:$rxbinding4_version"
     implementation "com.jakewharton.rxbinding4:rxbinding-recyclerview:$rxbinding4_version"
+    implementation "com.jakewharton.rxbinding4:rxbinding-material:$rxbinding4_version"
     implementation "io.reactivex.rxjava3:rxandroid:$rxjava3_version"
     implementation "io.reactivex.rxjava3:rxkotlin:3.0.1"
 
