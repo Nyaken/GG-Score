@@ -2,7 +2,14 @@
     <string name="app_name">GG_Score</string>
 
     <string name="refresh_score">전적 갱신</string>
+    <string name="score_summary">최근 20게임 분석</string>
+    <string name="score_summary_position">포지션</string>
+    <string name="score_summary_most_wins">모스트 승률</string>
 
     <string name="text_format_lp">%s LP</string>
+    <string name="text_format_score_summary">%s승 %s패</string>
     <string name="text_format_score">%s승 %s패 (%s)</string>
+    <string name="text_format_score_kda"><![CDATA[<b>%s</b> / <font color=\'#e84057\'><b>%s</b></font> / <b>%s</b>]]></string>
+    <string name="text_format_kda"><![CDATA[<font color=\'#1ea1f7\'>%s:1</font> <font color=\'#e84057\'>(%s%%)</font>]]></string>
+
 </resources>

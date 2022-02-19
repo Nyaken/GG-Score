@@ -1,5 +1,6 @@
 package me.nyaken.gg_score.home
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -9,7 +10,7 @@ import io.reactivex.rxjava3.schedulers.Schedulers
 import me.nyaken.domain.usecase.SummonerDetailUseCase
 import me.nyaken.domain.usecase.SummonerMatchesUseCase
 import me.nyaken.gg_score.BaseViewModel
-import me.nyaken.network.model.SummonerData
+import me.nyaken.network.model.*
 import java.lang.NullPointerException
 import javax.inject.Inject
 
@@ -40,6 +41,14 @@ class MainViewModel @Inject constructor(
 
     fun summonerData(item: SummonerData) {
         _summonerData.value = item
+    }
+
+    private val _summonerSummaryData = MutableLiveData<SummonerMatchesResponse>()
+    val summonerSummaryData: LiveData<SummonerMatchesResponse>
+        get() = _summonerSummaryData
+
+    fun summonerSummaryData(item: SummonerMatchesResponse) {
+        _summonerSummaryData.value = item
     }
 
     fun summonerDetailData() =
@@ -78,12 +87,22 @@ class MainViewModel @Inject constructor(
             .subscribeBy(
                 onNext = {
                     if(it.isSuccessful) {
-                        it.body()?.let {
-                            lastMatch = it.games.last().createDate
+                        it.body()?.let { response ->
+                            if(lastMatch == null) {
+                                summonerSummaryData(
+                                    SummonerMatchesResponse(
+                                        games = emptyList(),
+                                        champions = response.champions,
+                                        summary = response.summary,
+                                        positions = response.positions
+                                    )
+                                )
+                            }
+                            lastMatch = response.games.last().createDate
                         }
                     } else throw NullPointerException()
                 }, onError = {
-
+                    it.printStackTrace()
                 }
             )
             .addToDisposable()

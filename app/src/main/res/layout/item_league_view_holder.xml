@@ -75,11 +75,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="2dp"
+            android:layout_marginBottom="13dp"
             android:textColor="@color/cool_grey"
             android:textSize="10sp"
             app:item_tier_score="@{item}"
             app:layout_constraintStart_toStartOf="@id/textview_lp"
             app:layout_constraintTop_toBottomOf="@id/textview_lp"
+            app:layout_constraintBottom_toBottomOf="parent"
             tools:text="@string/text_format_lp" />
 
         <androidx.cardview.widget.CardView
