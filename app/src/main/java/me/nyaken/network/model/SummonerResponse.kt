@@ -4,6 +4,6 @@ import android.os.Parcelable
 import kotlinx.parcelize.Parcelize
 
 @Parcelize
-data class SummonerGenetoryResponse(
+data class SummonerResponse(
     val summoner: SummonerData
 ): Parcelable

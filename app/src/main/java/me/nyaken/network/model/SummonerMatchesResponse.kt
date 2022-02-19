@@ -4,7 +4,7 @@ import android.os.Parcelable
 import kotlinx.parcelize.Parcelize
 
 @Parcelize
-data class SummonerGenetoryMatchesResponse(
+data class SummonerMatchesResponse(
     val games: List<GameData>,
     val champions: List<ChampionData>,
     val positions: List<PositionData>,
