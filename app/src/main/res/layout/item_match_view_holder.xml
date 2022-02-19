@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="vm"
+            type="me.nyaken.gg_score.home.MainViewModel" />
+        <variable
+            name="item"
+            type="me.nyaken.network.model.GameData" />
+    </data>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="104dp"
+        android:layout_marginTop="4dp"
+        android:background="@color/white">
+
+        <LinearLayout
+            android:id="@+id/linear_is_win"
+            android:layout_width="40dp"
+            android:layout_height="0dp"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:background="@color/soft_blue"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <TextView
+                style="@style/TextStyle13"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                tools:text="승"/>
+
+            <View
+                android:layout_width="16dp"
+                android:layout_height="1dp"
+                android:layout_marginTop="6dp"
+                android:layout_marginBottom="6dp"
+                android:background="@color/white_40"/>
+
+            <TextView
+                style="@style/TextStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                tools:text="38:45"/>
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/imageview_champion"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toEndOf="@id/linear_is_win"
+            app:item_circle_image_src="@{item.champion.imageUrl}"/>
+
+        <TextView
+            style="@style/TextStyle14"
+            android:id="@+id/textview_score_badge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/shape_summoner_level"
+            android:paddingStart="4dp"
+            android:paddingEnd="4dp"
+            android:paddingTop="2dp"
+            android:paddingBottom="2dp"
+            app:layout_constraintTop_toBottomOf="@id/imageview_champion"
+            app:layout_constraintBottom_toBottomOf="@id/imageview_champion"
+            app:layout_constraintStart_toStartOf="@id/imageview_champion"
+            app:layout_constraintEnd_toEndOf="@id/imageview_champion"
+            tools:text="MVP"/>
+
+        <ImageView
+            android:id="@+id/imageview_spell_1"
+            android:layout_width="19dp"
+            android:layout_height="19dp"
+            android:layout_marginStart="4dp"
+            app:layout_constraintStart_toEndOf="@id/imageview_champion"
+            app:layout_constraintTop_toTopOf="@id/imageview_champion"/>
+
+        <ImageView
+            android:id="@+id/imageview_spell_2"
+            android:layout_width="19dp"
+            android:layout_height="19dp"
+            android:layout_marginTop="2dp"
+            app:layout_constraintStart_toStartOf="@id/imageview_spell_1"
+            app:layout_constraintTop_toBottomOf="@id/imageview_spell_1"/>
+
+        <ImageView
+            android:id="@+id/imageview_peak_1"
+            android:layout_width="19dp"
+            android:layout_height="19dp"
+            android:layout_marginStart="2dp"
+            app:layout_constraintStart_toEndOf="@id/imageview_spell_1"
+            app:layout_constraintTop_toTopOf="@id/imageview_spell_1"/>
+
+        <ImageView
+            android:id="@+id/imageview_peak_2"
+            android:layout_width="19dp"
+            android:layout_height="19dp"
+            android:layout_marginTop="2dp"
+            app:layout_constraintStart_toStartOf="@id/imageview_peak_1"
+            app:layout_constraintTop_toBottomOf="@id/imageview_peak_1"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

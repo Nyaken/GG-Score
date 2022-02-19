@@ -11,6 +11,7 @@ import me.nyaken.domain.usecase.SummonerDetailUseCase
 import me.nyaken.domain.usecase.SummonerMatchesUseCase
 import me.nyaken.gg_score.BaseViewModel
 import me.nyaken.network.model.*
+import me.nyaken.utils.Event
 import java.lang.NullPointerException
 import javax.inject.Inject
 
@@ -47,8 +48,16 @@ class MainViewModel @Inject constructor(
     val summonerSummaryData: LiveData<SummonerMatchesResponse>
         get() = _summonerSummaryData
 
-    fun summonerSummaryData(item: SummonerMatchesResponse) {
+    private fun summonerSummaryData(item: SummonerMatchesResponse) {
         _summonerSummaryData.value = item
+    }
+
+    private val _matchesData = MutableLiveData<Event<List<GameData>>>()
+    val matchesData: LiveData<Event<List<GameData>>>
+        get() = _matchesData
+    
+    fun matchesData(item: List<GameData>) {
+        _matchesData.value = Event(item)
     }
 
     fun summonerDetailData() =
@@ -98,6 +107,7 @@ class MainViewModel @Inject constructor(
                                     )
                                 )
                             }
+                            matchesData(response.games)
                             lastMatch = response.games.last().createDate
                         }
                     } else throw NullPointerException()

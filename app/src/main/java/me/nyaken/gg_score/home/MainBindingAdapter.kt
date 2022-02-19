@@ -24,8 +24,8 @@ import me.nyaken.network.model.PositionData
 import me.nyaken.network.model.SummaryData
 import kotlin.math.ceil
 
-@BindingAdapter("item_profile")
-fun ImageView.setProfile(
+@BindingAdapter("item_circle_image_src")
+fun ImageView.setCircleImageSrc(
     url: String?
 ) {
     Glide.with(this.context)

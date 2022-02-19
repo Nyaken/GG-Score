@@ -12,6 +12,8 @@ import me.nyaken.gg_score.BaseActivity
 import me.nyaken.gg_score.R
 import me.nyaken.gg_score.databinding.ActivityMainBinding
 import me.nyaken.gg_score.home.adapter.LeagueAdapter
+import me.nyaken.gg_score.home.adapter.MatchAdapter
+import me.nyaken.utils.EventObserver
 import kotlin.math.abs
 
 @AndroidEntryPoint
@@ -21,6 +23,10 @@ class MainActivity: BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
 
     private val leagueAdapter: LeagueAdapter by lazy {
         LeagueAdapter(viewModel)
+    }
+
+    private val matchAdapter: MatchAdapter by lazy {
+        MatchAdapter(viewModel)
     }
 
     override fun viewBinding() {
@@ -35,6 +41,12 @@ class MainActivity: BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
 
         viewModel.summonerData.observe(this, Observer {
             getSummonerMatches()
+        })
+
+        viewModel.matchesData.observe(this, EventObserver {
+            it.forEach {
+                matchAdapter.addItem(it)
+            }
         })
 
         binding.appbar.offsetChanges()
@@ -57,6 +69,8 @@ class MainActivity: BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
 
     override fun initLayout() {
         binding.listLeagues.adapter = leagueAdapter
+        binding.listMatches.adapter = matchAdapter
+
         onRefresh()
     }
 
