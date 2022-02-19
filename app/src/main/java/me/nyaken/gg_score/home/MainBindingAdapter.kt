@@ -2,6 +2,7 @@ package me.nyaken.gg_score.home
 
 import android.os.Build
 import android.text.Html
+import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.content.res.AppCompatResources
@@ -179,6 +180,12 @@ fun ImageView.setChampionImage(
     position: Int,
 ) {
     item?.let {
+        if(item.size == 1 && position == 1) {
+            this.visibility = View.GONE
+            return
+        } else {
+            this.visibility = View.VISIBLE
+        }
         var imageUrl = it[position].imageUrl
         if(imageUrl.startsWith("//")){
             imageUrl = "https:$imageUrl"
@@ -198,6 +205,12 @@ fun TextView.setChampionPercent(
     position: Int,
 ) {
     item?.let {
+        if(item.size == 1 && position == 1) {
+            this.visibility = View.GONE
+            return
+        } else {
+            this.visibility = View.VISIBLE
+        }
         var totalGames = 0
         it.forEach {
             totalGames += it.games
