@@ -45,7 +45,7 @@ class NetworkModule {
         return Retrofit.Builder()
             .addConverterFactory(GsonConverterFactory.create())
             .addCallAdapterFactory(RxJava3CallAdapterFactory.create())
-            .baseUrl("https://codingtest.op.gg/api")
+            .baseUrl("https://codingtest.op.gg")
             .client(okHttpClient)
             .build()
             .also {

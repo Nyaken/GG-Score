@@ -10,15 +10,15 @@ import retrofit2.http.Query
 
 interface ApiContainer {
 
-    @GET("/summoner/{user}")
+    @GET("/api/summoner/{user}")
     fun summonerDetail(
         @Path("user") user: String
     ): Observable<Response<SummonerResponse>>
 
-    @GET("/summoner/{user}/matches")
+    @GET("/api/summoner/{user}/matches")
     fun summonerMatches(
         @Path("user") user: String,
-        @Query("lastMatch") last: String
+        @Query("lastMatch") last: Long?
     ): Observable<Response<SummonerMatchesResponse>>
 
 }
