@@ -32,52 +32,47 @@
             app:layout_constraintStart_toStartOf="parent" />
 
         <TextView
+            style="@style/TextStyle4"
             android:id="@+id/textview_tier_rank_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginTop="12dp"
-            android:textColor="@color/soft_blue"
-            android:textSize="10sp"
             android:text="@{item.tierRank.name}"
             app:layout_constraintStart_toEndOf="@id/imageview_tier_rank"
             app:layout_constraintTop_toTopOf="parent"
             tools:text="TIER_NAME" />
 
         <TextView
+            style="@style/TextStyle5"
             android:id="@+id/textview_tier"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="2dp"
             android:layout_marginEnd="8dp"
-            android:textColor="@color/dark_grey"
-            android:textSize="14sp"
-            android:textStyle="bold"
             android:text="@{item.tierRank.tier}"
             app:layout_constraintStart_toStartOf="@id/textview_tier_rank_name"
             app:layout_constraintTop_toBottomOf="@id/textview_tier_rank_name"
             tools:text="TIER" />
 
         <TextView
+            style="@style/TextStyle6"
             android:id="@+id/textview_lp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="2dp"
-            android:textColor="@color/gunmetal"
-            android:textSize="10sp"
             app:item_tier_lp="@{item.tierRank.lp}"
             app:layout_constraintStart_toStartOf="@id/textview_tier"
             app:layout_constraintTop_toBottomOf="@id/textview_tier"
             tools:text="@string/text_format_lp" />
 
         <TextView
+            style="@style/TextStyle7"
             android:id="@+id/textview_score"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="2dp"
             android:layout_marginBottom="13dp"
-            android:textColor="@color/cool_grey"
-            android:textSize="10sp"
             app:item_tier_score="@{item}"
             app:layout_constraintStart_toStartOf="@id/textview_lp"
             app:layout_constraintTop_toBottomOf="@id/textview_lp"
