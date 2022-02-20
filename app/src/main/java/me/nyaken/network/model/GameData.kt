@@ -5,6 +5,7 @@ import kotlinx.parcelize.Parcelize
 
 @Parcelize
 data class GameData(
+    val mmr: Long,
     val champion: Champion,
     val spells: List<Spell>,
     val items: List<Item>,
@@ -12,7 +13,8 @@ data class GameData(
     val gameType: String,
     val gameLength: Long,
     val isWin: Boolean,
-    val stats: Stats
+    val stats: Stats,
+    val peak: List<String>
 ): Parcelable {
 
     @Parcelize
@@ -42,7 +44,8 @@ data class GameData(
             val death: Int,
             val assist: Int,
             val opScoreBadge: String,
-            val contributionForKillRate: String
+            val contributionForKillRate: String,
+            val largestMultiKillString: String
         ): Parcelable
     }
 

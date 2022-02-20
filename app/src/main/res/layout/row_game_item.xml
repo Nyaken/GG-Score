@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable
+            name="item"
+            type="String" />
+    </data>
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingEnd="2dp">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:cardBackgroundColor="@color/pale_grey_two"
+            app:cardCornerRadius="4dp"
+            app:cardElevation="0dp">
+
+            <ImageView
+                android:id="@+id/iv_item"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                app:item_image_src="@{item}"/>
+
+        </androidx.cardview.widget.CardView>
+    </FrameLayout>
+</layout>

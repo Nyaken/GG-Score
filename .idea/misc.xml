@@ -4,12 +4,17 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="app/src/main/res/drawable/button_refresh_score.xml" value="0.197" />
+        <entry key="app/src/main/res/drawable/shape_badge_ace.xml" value="0.197" />
+        <entry key="app/src/main/res/drawable/shape_badge_mvp.xml" value="0.197" />
+        <entry key="app/src/main/res/drawable/shape_circle_steel_grey_10.xml" value="0.197" />
+        <entry key="app/src/main/res/drawable/shape_game_item.xml" value="0.197" />
         <entry key="app/src/main/res/drawable/shape_summoner_level.xml" value="0.197" />
         <entry key="app/src/main/res/drawable/shape_tier_rank.xml" value="0.197" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.3669703165690104" />
         <entry key="app/src/main/res/layout/item_league_view_holder.xml" value="0.3067708333333333" />
         <entry key="app/src/main/res/layout/item_match_view_holder.xml" value="0.35260416666666666" />
         <entry key="app/src/main/res/layout/item_previous_tier_view_holder.xml" value="0.5456278483072917" />
+        <entry key="app/src/main/res/layout/row_game_item.xml" value="0.3067708333333333" />
       </map>
     </option>
   </component>

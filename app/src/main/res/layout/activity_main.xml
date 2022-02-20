@@ -280,7 +280,7 @@
                     android:id="@+id/toolbar"
                     android:layout_width="match_parent"
                     android:layout_height="?attr/actionBarSize"
-                    android:background="@color/pale_grey"
+                    android:background="@color/white"
                     android:visibility="gone"
                     app:contentInsetLeft="0dp"
                     app:contentInsetStart="0dp"
@@ -288,16 +288,44 @@
                     app:contentInsetEnd="0dp"
                     app:layout_collapseMode="pin">
 
-                    <TextView
+                    <FrameLayout
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:textSize="22sp"
-                        android:textColor="@color/dark_grey"
-                        android:textStyle="bold"
-                        android:text="@{vm.summonerData.name}"
-                        android:gravity="center"
-                        tools:text="USER"/>
+                        android:layout_height="match_parent">
 
+                        <TextView
+                            style="@style/TextStyle5"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:text="@{vm.summonerData.name}"
+                            android:gravity="center"
+                            tools:text="USER"/>
+
+                        <androidx.cardview.widget.CardView
+                            android:id="@+id/cardview_refresh_score_in_toolbar"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="16dp"
+                            android:layout_gravity="center_vertical|end"
+                            android:foreground="?android:attr/selectableItemBackground"
+                            app:layout_constraintStart_toStartOf="@id/textview_user"
+                            app:layout_constraintTop_toBottomOf="@id/textview_user"
+                            app:cardBackgroundColor="@color/soft_blue"
+                            app:cardCornerRadius="20dp"
+                            app:cardElevation="0dp">
+
+                            <TextView
+                                style="@style/TextStyle"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:paddingStart="8dp"
+                                android:paddingEnd="8dp"
+                                android:paddingTop="3dp"
+                                android:paddingBottom="3dp"
+                                android:gravity="center"
+                                android:text="@string/refresh_score"/>
+
+                        </androidx.cardview.widget.CardView>
+                    </FrameLayout>
                 </androidx.appcompat.widget.Toolbar>
             </com.google.android.material.appbar.CollapsingToolbarLayout>
         </com.google.android.material.appbar.AppBarLayout>

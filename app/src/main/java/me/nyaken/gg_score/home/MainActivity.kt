@@ -7,6 +7,7 @@ import androidx.lifecycle.Observer
 import com.jakewharton.rxbinding4.material.offsetChanges
 import com.jakewharton.rxbinding4.view.clicks
 import dagger.hilt.android.AndroidEntryPoint
+import io.reactivex.rxjava3.core.Observable
 import io.reactivex.rxjava3.kotlin.subscribeBy
 import me.nyaken.gg_score.BaseActivity
 import me.nyaken.gg_score.R
@@ -60,8 +61,12 @@ class MainActivity: BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
             }
             .addToDisposable()
 
-        binding.cardviewRefreshScore.clicks()
+        Observable.merge(
+            binding.cardviewRefreshScore.clicks(),
+            binding.cardviewRefreshScoreInToolbar.clicks()
+        )
             .subscribeBy {
+                binding.appbar.setExpanded(true, true)
                 onRefresh()
             }
             .addToDisposable()
@@ -84,6 +89,7 @@ class MainActivity: BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
 
     override fun onRefresh() {
         leagueAdapter.clearItems()
+        matchAdapter.clearItems()
         viewModel.clear()
         getSummonerDetail()
     }

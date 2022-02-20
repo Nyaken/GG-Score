@@ -25,16 +25,18 @@
             android:layout_height="0dp"
             android:gravity="center"
             android:orientation="vertical"
-            android:background="@color/soft_blue"
+            app:item_match_is_win_background="@{item.isWin}"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent">
+            app:layout_constraintStart_toStartOf="parent"
+            tools:background="@color/soft_blue">
 
             <TextView
                 style="@style/TextStyle13"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
+                app:item_match_is_win="@{item.isWin}"
                 tools:text="승"/>
 
             <View
@@ -49,6 +51,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
+                app:item_match_mmr="@{item.mmr}"
                 tools:text="38:45"/>
         </LinearLayout>
 
@@ -58,9 +61,9 @@
             android:layout_height="40dp"
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
+            app:item_circle_image_src="@{item.champion.imageUrl}"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toEndOf="@id/linear_is_win"
-            app:item_circle_image_src="@{item.champion.imageUrl}"/>
+            app:layout_constraintStart_toEndOf="@id/linear_is_win"/>
 
         <TextView
             style="@style/TextStyle14"
@@ -72,6 +75,7 @@
             android:paddingEnd="4dp"
             android:paddingTop="2dp"
             android:paddingBottom="2dp"
+            app:item_match_score_badge="@{item.stats.general.opScoreBadge}"
             app:layout_constraintTop_toBottomOf="@id/imageview_champion"
             app:layout_constraintBottom_toBottomOf="@id/imageview_champion"
             app:layout_constraintStart_toStartOf="@id/imageview_champion"
@@ -83,6 +87,8 @@
             android:layout_width="19dp"
             android:layout_height="19dp"
             android:layout_marginStart="4dp"
+            app:item_match_spell_image="@{item.spells}"
+            app:item_match_spell_position="@{0}"
             app:layout_constraintStart_toEndOf="@id/imageview_champion"
             app:layout_constraintTop_toTopOf="@id/imageview_champion"/>
 
@@ -91,6 +97,8 @@
             android:layout_width="19dp"
             android:layout_height="19dp"
             android:layout_marginTop="2dp"
+            app:item_match_spell_image="@{item.spells}"
+            app:item_match_spell_position="@{1}"
             app:layout_constraintStart_toStartOf="@id/imageview_spell_1"
             app:layout_constraintTop_toBottomOf="@id/imageview_spell_1"/>
 
@@ -99,6 +107,9 @@
             android:layout_width="19dp"
             android:layout_height="19dp"
             android:layout_marginStart="2dp"
+            android:background="@drawable/shape_circle_steel_grey_10"
+            app:item_match_peak_image="@{item.peak}"
+            app:item_match_peak_position="@{0}"
             app:layout_constraintStart_toEndOf="@id/imageview_spell_1"
             app:layout_constraintTop_toTopOf="@id/imageview_spell_1"/>
 
@@ -107,8 +118,82 @@
             android:layout_width="19dp"
             android:layout_height="19dp"
             android:layout_marginTop="2dp"
+            android:background="@drawable/shape_circle_steel_grey_10"
+            app:item_match_peak_image="@{item.peak}"
+            app:item_match_peak_position="@{1}"
             app:layout_constraintStart_toStartOf="@id/imageview_peak_1"
             app:layout_constraintTop_toBottomOf="@id/imageview_peak_1"/>
+
+        <TextView
+            style="@style/TextStyle15"
+            android:id="@+id/textview_match_kda"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="18dp"
+            android:layout_marginStart="16dp"
+            android:textStyle="normal"
+            app:item_match_kda="@{item.stats.general}"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toEndOf="@id/imageview_peak_1"
+            tools:text="0 / 0 / 0"/>
+
+        <TextView
+            style="@style/TextStyle16"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            app:item_match_kill_involvement="@{item.stats.general}"
+            app:layout_constraintStart_toStartOf="@id/textview_match_kda"
+            app:layout_constraintTop_toBottomOf="@id/textview_match_kda"
+            tools:text="킬관여 0%"/>
+
+        <LinearLayout
+            android:id="@+id/linear_items"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:orientation="horizontal"
+            app:item_match_game_items="@{item.items}"
+            app:layout_constraintStart_toStartOf="@id/imageview_champion"
+            app:layout_constraintTop_toBottomOf="@id/imageview_champion"/>
+
+        <TextView
+            style="@style/TextStyle17"
+            android:id="@+id/textview_game_type"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:text="@{item.gameType}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="솔랭"/>
+
+        <TextView
+            style="@style/TextStyle17"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="1dp"
+            app:item_match_created_date="@{item.createDate}"
+            app:layout_constraintTop_toBottomOf="@id/textview_game_type"
+            app:layout_constraintEnd_toEndOf="@id/textview_game_type"
+            tools:text="0분 전"/>
+
+        <TextView
+            style="@style/TextStyle19"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/shape_largest_multi_kill_badge"
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp"
+            android:paddingTop="4dp"
+            android:paddingBottom="4dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="18dp"
+            app:largest_multi_kill_string="@{item.stats.general.largestMultiKillString}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            tools:text=""/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
