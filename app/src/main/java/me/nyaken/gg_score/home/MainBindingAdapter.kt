@@ -370,6 +370,18 @@ fun LinearLayout.setMatchGameItems(
     }
 }
 
+@BindingAdapter("item_match_game_ward")
+fun ImageView.setMatchGameWard(
+    items: List<GameData.Item>
+) {
+    Glide.with(this.context)
+        .load(items.last().imageUrl)
+        .apply(RequestOptions.bitmapTransform(MultiTransformation(CircleCrop())))
+        .transition(DrawableTransitionOptions.withCrossFade())
+        .diskCacheStrategy(DiskCacheStrategy.AUTOMATIC)
+        .into(this)
+}
+
 @BindingAdapter("item_match_created_date")
 fun TextView.setMatchCreatedDate(
     time: Long

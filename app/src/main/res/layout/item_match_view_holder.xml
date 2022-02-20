@@ -159,6 +159,14 @@
             app:layout_constraintStart_toStartOf="@id/imageview_champion"
             app:layout_constraintTop_toBottomOf="@id/imageview_champion"/>
 
+        <ImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            app:item_match_game_ward="@{item.items}"
+            app:layout_constraintStart_toEndOf="@id/linear_items"
+            app:layout_constraintTop_toTopOf="@id/linear_items"
+            app:layout_constraintBottom_toBottomOf="@id/linear_items"/>
+
         <TextView
             style="@style/TextStyle17"
             android:id="@+id/textview_game_type"
