@@ -17,7 +17,9 @@
         android:layout_height="wrap_content"
         android:minHeight="104dp"
         android:layout_marginTop="4dp"
-        android:background="@color/white">
+        android:background="@color/white"
+        android:foreground="?android:attr/selectableItemBackground"
+        android:onClick="@{() -> vm.clickGame(item)}">
 
         <LinearLayout
             android:id="@+id/linear_is_win"

@@ -61,6 +61,22 @@ class MainViewModel @Inject constructor(
         _matchesData.value = Event(item)
     }
 
+    private val _clickLeauge = MutableLiveData<Event<LeagueData>>()
+    val clickLeauge: LiveData<Event<LeagueData>>
+        get() = _clickLeauge
+
+    fun clickLeauge(item: LeagueData) {
+        _clickLeauge.value = Event(item)
+    }
+
+    private val _clickGame = MutableLiveData<Event<GameData>>()
+    val clickGame: LiveData<Event<GameData>>
+        get() = _clickGame
+
+    fun clickGame(item: GameData) {
+        _clickGame.value = Event(item)
+    }
+
     fun summonerDetailData() =
         summonerDetailUseCase(user)
             .subscribeOn(Schedulers.io())

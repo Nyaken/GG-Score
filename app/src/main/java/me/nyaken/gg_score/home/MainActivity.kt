@@ -1,7 +1,7 @@
 package me.nyaken.gg_score.home
 
-import android.util.Log
 import android.view.View
+import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.lifecycle.Observer
 import com.jakewharton.rxbinding4.material.offsetChanges
@@ -37,7 +37,16 @@ class MainActivity: BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
 
     override fun setupObserve() {
         viewModel.loading.observe(this, Observer {
+            if(it) binding.progressLoading.show()
+            else binding.progressLoading.hide()
+        })
 
+        viewModel.clickLeauge.observe(this, EventObserver {
+            Toast.makeText(this, it.toString(), Toast.LENGTH_SHORT).show()
+        })
+
+        viewModel.clickGame.observe(this, EventObserver {
+            Toast.makeText(this, it.toString(), Toast.LENGTH_SHORT).show()
         })
 
         viewModel.summonerData.observe(this, Observer {

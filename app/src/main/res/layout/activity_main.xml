@@ -54,6 +54,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:minWidth="33dp"
+                            android:gravity="center"
                             android:background="@drawable/shape_summoner_level"
                             android:paddingStart="6dp"
                             android:paddingEnd="6dp"
@@ -339,6 +340,15 @@
             android:orientation="vertical"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_behavior="@string/appbar_scrolling_view_behavior"/>
+
+        <androidx.core.widget.ContentLoadingProgressBar
+            style="?android:attr/progressBarStyle"
+            android:id="@+id/progress_loading"
+            android:layout_width="45dp"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            app:layout_anchor="@id/list_matches"
+            app:layout_anchorGravity="bottom|center"/>
 
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
