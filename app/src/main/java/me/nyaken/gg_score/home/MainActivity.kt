@@ -50,6 +50,15 @@ class MainActivity: BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
             }
         })
 
+        binding.listMatches.apply {
+            setLoadListenerForLinear {
+                if(viewModel.loading.value == false && viewModel.hasMore) {
+                    viewModel.summonerMatchesData()
+                }
+            }
+                .addToDisposable()
+        }
+
         binding.appbar.offsetChanges()
             .subscribeBy {
                 binding.toolbar.visibility =

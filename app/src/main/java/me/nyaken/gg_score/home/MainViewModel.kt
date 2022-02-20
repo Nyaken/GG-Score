@@ -23,6 +23,7 @@ class MainViewModel @Inject constructor(
 
     private val user: String = "genetory"
     private var lastMatch: Long? = null
+    var hasMore: Boolean = true
 
     private val _loading = MutableLiveData<Boolean>()
     val loading: LiveData<Boolean>
@@ -109,6 +110,7 @@ class MainViewModel @Inject constructor(
                             }
                             matchesData(response.games)
                             lastMatch = response.games.last().createDate
+                            hasMore = response.games.isNotEmpty()
                         }
                     } else throw NullPointerException()
                 }, onError = {

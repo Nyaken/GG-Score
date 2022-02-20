@@ -3,6 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="../../../../../layout/custom_preview.xml" value="0.3648148148148148" />
         <entry key="app/src/main/res/drawable/button_refresh_score.xml" value="0.197" />
         <entry key="app/src/main/res/drawable/shape_badge_ace.xml" value="0.197" />
         <entry key="app/src/main/res/drawable/shape_badge_mvp.xml" value="0.197" />
